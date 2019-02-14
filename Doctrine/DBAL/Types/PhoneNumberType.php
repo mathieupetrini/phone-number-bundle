@@ -75,7 +75,7 @@ class PhoneNumberType extends Type
         $util = PhoneNumberUtil::getInstance();
 
         try {
-            return $util->parse($value, PhoneNumberUtil::UNKNOWN_REGION);
+            return $util->parse($value, \Locale::getRegion(\Locale::getDefault()));
         } catch (NumberParseException $e) {
             throw ConversionException::conversionFailed($value, self::NAME);
         }

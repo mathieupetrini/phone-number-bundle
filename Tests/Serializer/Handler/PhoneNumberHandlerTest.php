@@ -11,6 +11,8 @@
 
 namespace Misd\PhoneNumberBundle\Tests\Serializer\Handler;
 
+use JMS\Serializer\JsonSerializationVisitor;
+use JMS\Serializer\VisitorInterface;
 use libphonenumber\PhoneNumberUtil;
 use Misd\PhoneNumberBundle\Serializer\Handler\PhoneNumberHandler;
 use PHPUnit_Framework_TestCase as TestCase;
@@ -28,7 +30,7 @@ class PhoneNumberHandlerTest extends TestCase
 
         $handler = new PhoneNumberHandler($phoneNumberUtil);
 
-        $visitor = $this->getMockBuilder('JMS\Serializer\VisitorInterface')->getMock();
+        $visitor = $this->getMockBuilder(JsonSerializationVisitor::class)->getMock();
 
         $test = $this->getMock('libphoneNumber\PhoneNumber');
         $type = array();

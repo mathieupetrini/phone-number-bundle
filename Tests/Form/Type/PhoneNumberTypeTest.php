@@ -23,7 +23,7 @@ use Symfony\Component\Intl\Util\IntlTestHelper;
  */
 class PhoneNumberTypeTest extends TypeTestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         Locale::setDefault('en');
 

@@ -19,10 +19,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Countries;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Phone number form type.
@@ -60,7 +59,7 @@ class PhoneNumberType extends AbstractType
 
             $countryChoices = array();
 
-            foreach (Intl::getRegionBundle()->getCountryNames() as $region => $name) {
+            foreach (Countries::getNames() as $region => $name) {
                 if (false === isset($countries[$region])) {
                     continue;
                 }
@@ -119,17 +118,6 @@ class PhoneNumberType extends AbstractType
     {
         $view->vars['type'] = 'tel';
         $view->vars['widget'] = $options['widget'];
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @deprecated To be removed when the Symfony Form component compatibility
-     *             is bumped to at least 2.7.
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 
     /**

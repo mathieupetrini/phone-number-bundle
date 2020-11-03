@@ -12,7 +12,8 @@
 namespace Misd\PhoneNumberBundle\Twig\Extension;
 
 use Misd\PhoneNumberBundle\Templating\Helper\PhoneNumberHelper;
-use Symfony\Bundle\TwigBundle\DependencyInjection\TwigExtension;
+use Twig\Extension\AbstractExtension;
+use Twig\Extension\ExtensionInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 use Twig\TwigTest;
@@ -20,7 +21,7 @@ use Twig\TwigTest;
 /**
  * Phone number helper Twig extension.
  */
-class PhoneNumberHelperExtension extends TwigExtension
+class PhoneNumberHelperExtension extends AbstractExtension implements ExtensionInterface
 {
     /**
      * Phone number helper.
